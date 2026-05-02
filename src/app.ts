@@ -1,5 +1,8 @@
 import express, { Application, Request, Response } from "express";
 import { indexRoutes } from "./app/routes";
+import { globalErrorHandler } from "./app/middleware/globalErrorHandler";
+import { notFoundHandler } from "./app/middleware/notFoundHandler";
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
@@ -8,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/v1", indexRoutes);
 
@@ -15,5 +19,8 @@ app.use("/api/v1", indexRoutes);
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
+
+app.use(globalErrorHandler);
+app.use(notFoundHandler);
 
 export default app;

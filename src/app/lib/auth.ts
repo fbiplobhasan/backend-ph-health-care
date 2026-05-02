@@ -12,6 +12,19 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+
+  session: {
+    // 1day in seconds
+    expiresIn: 60 * 60 * 60 * 24,
+    // 1day in seconds
+    updateAge: 60 * 60 * 60 * 24,
+    // 1day in seconds
+    cookieCache: {
+      enabled: true,
+      maxAge: 60 * 60 * 60 * 24,
+    },
+  },
+
   // add additional Field
   user: {
     additionalFields: {
