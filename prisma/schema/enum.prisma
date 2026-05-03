@@ -1,8 +1,8 @@
 enum Role {
-    PATIENT
     SUPER_ADMIN
-    DOCTOR
     ADMIN
+    DOCTOR
+    PATIENT
 }
 
 enum UserStatus {
@@ -14,4 +14,28 @@ enum UserStatus {
 enum Gender {
     MALE
     FEMALE
+    OTHER
+}
+
+enum BloodGroup {
+    A_POSITIVE
+    A_NEGATIVE
+    B_POSITIVE
+    B_NEGATIVE
+    AB_POSITIVE
+    AB_NEGATIVE
+    O_POSITIVE
+    O_NEGATIVE
+}
+
+enum AppointmentStatus {
+    SCHEDULED
+    IN_PROGRESS
+    COMPLETED
+    CANCELED
+}
+
+enum PaymentStatus {
+    PAID
+    UNPAID
 }
