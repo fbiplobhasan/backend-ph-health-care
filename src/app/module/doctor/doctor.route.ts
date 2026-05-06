@@ -17,7 +17,7 @@ router.get(
 );
 router.patch(
   "/:id",
-  checkAuth(Role.SUPER_ADMIN),
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
   doctorController.updateDoctor,
 );
 router.delete(

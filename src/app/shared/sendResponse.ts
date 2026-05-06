@@ -1,5 +1,11 @@
 import { Response } from "express";
-import { IResponseData } from "../module/specialty/specialty.interface";
+
+interface IResponseData<T> {
+  httpStatusCode: number;
+  success: boolean;
+  message: string;
+  data?: T;
+}
 
 export const sendResponse = <T>(
   res: Response,
